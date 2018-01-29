@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { overflow-x:hidden; margin:0; padding:0; background:url(../images/bg.gif) center top repeat-x #FFF;text-align:center; overflow:auto;}
+body a{ text-decoration:none;}
+body a:hover{ text-decoration:underline;}
+
+
+.main{ width:980px; margin:0 auto; height:540px; cursor:default; position:relative;background:url(../images/logIn_bg2.jpg) center top no-repeat #FFF; top:0px;}
+
+.announce{ position:absolute; top:420px; left:13px; line-height:25px; font-size:12px; width:600px; text-align:left; color:#4f4f4f;}
+.announce a{ color:#4f4f4f;}
+.announce a:hover{ color:#00f;}
+.announce font{ color:#FFF; font-weight:bold; padding-right:30px; font-size:12px;}
+
+.logo{ position:absolute; top:150px; left:5px;}
+
+.inf_title{ position:absolute; top:160px; left:740px; font-size:20px; color:#000; font-family:"微软雅黑"; width:200px; height:20px; text-align:left;}
+
+.inf_box{ position:absolute; right:79px; top:243px; width:166px; height:300px;}
+.inf_input{ width:132px; _width:131px;  border:none; height:19px; padding-left:3px; padding-right:3px; background:none; *background:#FFF; margin-bottom:23px; *margin-bottom:21px; clear:both;}
+.inf_input:hover{ background:#FFF;}
+
+.bt_box{ border:1px solid #a2a2a2;display:inline-block; float:left; margin-top:10px; margin-left:-18px; *margin-left:13px;}
+.bt{ /*background:url(../images/bt0.gif) center repeat-x;*/ border:none; height:21px; line-height:18px;*line-height:22px; padding-left:13px; padding-right:13px; *padding-left:5px; *padding-right:5px; margin:0px; cursor:default;}
+.bt:hover{ background:url(../images/bt1.gif) center repeat-x; cursor:pointer;box-shadow: 0px 0px 7px 0px #BBB;}
+.bt:active{  cursor:pointer;box-shadow: 0px 0px 4px 0px #999;}
+
+.company{ font-family:"微软雅黑"; font-size:32px; color:#FFF; position:absolute; right:240px; top:24px; width:400px; text-align:right;}
+.company span{ font-size:16px; clear:both; display:block; line-height:24px;}

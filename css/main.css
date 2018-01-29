@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body {
+color:#333333;
+margin:0px;
+padding:0px;
+font-family:"微软雅黑";
+}
+body, div, ul, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, th, td, dl, dt, dd {
+font-family:"微软雅黑";
+font-size: 14px;
+color:#333333;
+margin:0;
+padding:0;
+list-style:none;
+border: none;
+}
+body, div, td {
+line-height:1.4em;
+}
+*:focus {
+	outline: none;
+}
+a{ text-decoration:none; display:inline-block; border: none; color: #fff;}
+img,a img{ border:none;}
+
+font{ font-size:12px;}
+
+.glow{
+	-moz-box-shadow:0px 0px 5px #999; -webkit-box-shadow:0px 0px 5px #999; box-shadow:0px 0px 5px #999;
+	/* gte ie8 */ -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=135,strength=3)";  
+	/* lte ie7 */  *filter: progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=135,strength=3); 
+	}
+.radis {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.clear_div{ clear:both;}
+.clearfix:after{visibility: hidden; display: block; font-size: 0; content: "."; clear: both;height: 0;}
+* html .clearfix{zoom: 1;}
+*:first-child + html .clearfix{zoom: 1;}
+
+.main{ width:1000px; position:relative; margin:0 auto; }
+.main .head {color: #fff;}
+.welcome{margin-top: -20px; float: right; color: #fff;}
+.welcome a:hover{text-decoration: underline;}
+
+.top{width: 100%; background: #ef6c6c; height: 155px; text-align: center;}
+.top .main {background: url(../images/head-bg.jpg);}
+.top .head {line-height: 150px; font-size: 54px; text-shadow: 2px 2px #333;}
+
+.content {background: url(../images/bg.jpg); width: 100%; padding-bottom: 50px;}
+.vote-gather {height: 65px; background: #bcbcbb; line-height: 65px; font-size: 20px; }
+.gather-head {font-size: 24px; padding-left: 18px; float: left;}
+.gather-total {font-weight: bold; color: #ef6c6c; float: left;}
+.vote-gather a {float: right; color: #6a6a6a; padding-right: 20px;}
+.vote-gather a:hover {color: #818181;}
+
+.vote-per {background: rgba(129, 129, 129, 0.2); background: #ddd\0; +background: #ddd; text-align: center;}
+.vote-main {text-align: left;}
+.vote-per h2 {font-size: 24px; color: #666; padding: 20px 0px;}
+.vote-per>ul {font-size: 0px; margin-bottom: 50px; padding-bottom: 20px;}
+.vote-per-box {display: inline-block; list-style: none; text-align: left; width: 188px; margin: 30px 30px 0px 30px; }
+.vote-per-box {+display: inline;}
+.vote-per-box p {margin: 12px 0px;}
+.vote-per-box img {border: 3px solid #fff; width: 182px;}
+
+.vote-per-name {font-size: 24px; font-weight: bold;}
+.vote-per-major {font-size: 18px;}
+.vote-per-num {color: #ef6c6c; font-size: 18px; font-weight: bold;}
+.vote-per-progress {position: relative; height: 18px;}
+.vote-per-progress div {position: absolute; height: 18px;}
+.vote-progress-bg {background: url(../images/progress.jpg); width: 185px;}
+.vote-progress-num {background: #b9d53e;}
+.vote-per-btn {background: #ef6c6c; height: 36px; padding: 0px 25px; line-height: 36px; text-align: center; font-size: 18px; color: #fff; cursor: pointer;}
+.vote-total-btn {height: 50px; padding: 0px 40px; line-height: 50px; margin-bottom: 50px;}
+
+.bottom {margin-top: 50px; padding-top: 5px; padding-bottom: 20px; text-align: center;}
+.bottom div {margin-top: 40px; font-size: 18px; color: #666;}
+.bottom .backyear{float: right; font-size: 18px; color: #000;}
+.bottom .noback{float: right; font-size: 18px; color: #666;}
+.bottom .backyear:hover{text-decoration: underline; cursor: pointer;}
+
+/*-------------------------------------子页-----------------------------------------*/
+.vote-per-content {padding-bottom: 50px;}
+.vote-per-content .vote-per-box {float: left; margin-top: 0px; margin-left: 50px;}
+.vote-per-content h2 {font-size: 24px; color: #666; padding: 20px 0px;}
+.divide {height: 2px; width: 900px; background: #999; margin: 0px auto;}
+.vote-per-time {margin: 10px 0px;}
+.vote-per-intro {width: 600px; float: left; text-align: left; margin-left: 30px;}
+
+/*--------------------------------------登陆------------------------------------------------*/
+body.load-bd {background: url(../images/bg.png);}
+.load {width: 320px; height: 400px; margin: 0 auto; margin-top: 60px; font-size: 14px; color: #959595; text-align: center;}
+.load h1 {font-size: 54px; color: #666; line-height: 54px;}
+.load input { margin-top: 30px;}
+.load a {color: #959595;}
+.load input[type="text"] {width: 310px; padding-left: 10px; height: 42px; line-height: 42px; border: 1px solid #a4a5a7; -webkit-border-radius: 3px;  font-size: 18px; color: #999;}
+.load input[type="text"]:focus {border: 1px solid #8aae26;}
+.load input[type="password"] {width: 310px; padding-left: 10px; height: 42px; line-height: 42px; border: 1px solid #a4a5a7; -webkit-border-radius: 3px;  font-size: 18px; color: #999;}
+.load input[type="password"]:focus {border: 1px solid #8aae26;}
+.load input[type="submit"] {width: 100%; height: 40px; text-align: center; line-height: 40px; background-color: #ef6c6c; color: #fff; border: none; -webkit-border-radius: 3px; font-size: 18px;}
+.load input[type="submit"]:hover {background-color: #ff6c6c; cursor: pointer;}
+
+.load-regist {text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #cbcbcd;}
+.load-regist a {padding: 0px; color: #3b95b7;}
+
+/*--------------------------------------投票成功------------------------------------------------*/
+#cover{ width:100%; height:100%; position:fixed; left:0px; top:0px; background:url(../images/t_bg.png); z-index: 2; display: none;}
+#votesuc{ width:200px; background:#FFF; padding:30px; margin:0 auto; margin-top: 20%; position:relative;border-top:30px solid #ef6c6c;font-size: 1.4em;font-weight:bold;text-align: center;}
+#votesuc a{width: 50px; height: 28px;padding: 0px 20px; border: none; background-color: #ef6c6c; color: #fff; font-size: 0.6em; font-weight: bold; cursor: pointer;}
+
+/*---------------------------------------统计结果-------------------------------------*/
+.vote-stat {text-align: left; padding-left: 50px;}
+.vote-stat h2 {}
+.vote-stat ul li {height: 36px;}
+.vote-stat ul li div {display: inline-block; height: 20px; width: 100px; margin: 8px auto; float: left;}
+.vote-stat ul li div {+display: inline; margin-left: 30px;}
+.vote-stat ul li div.vote-pro {margin-left: 30px;}
+.vote-stat ul li div.vote-stat-num {float: right; padding-right: 160px;}
+.vote-stat ul li div.clear_div {margin: 0px!important;}
