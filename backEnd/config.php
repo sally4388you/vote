@@ -1,8 +1,8 @@
 <?php
 	$dbhost = "localhost";
 	// $dbuser = "vote";
-	$dbuser = "root";
-	$dbname = "vote";
+	$dbuser = "remote";
+	$dbname = "vote_hust";
 	// $dbpassword = "2VTF4K0XNAYMWZ";
 	$dbpassword = "199551";
 	$conn = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
