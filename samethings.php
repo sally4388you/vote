@@ -1,7 +1,11 @@
 <?php
 	
+	include_once "backEnd/language.php";
+
 	function head(){
 		GLOBAL $conn;
+		GLOBAL $app;
+		GLOBAL $lang;
 ?>
 		<div class="top">
 		<div class="main">
@@ -10,19 +14,20 @@
 			$sql = "SELECT * FROM `setting` WHERE `name`='firstTitle'";
 			$result = mysqli_query($conn, $sql);
 			$row = mysqli_fetch_array($result, MYSQLI_BOTH);
-			echo $row['value'];
+			echo $row[$lang == 'en' ? 'eng' : 'value'];
 ?>
 			</p>
 			<p class="welcome">
 <?php
 			if (isset($_SESSION['studentname'])){
 ?>
-				欢迎登录 <?php echo $_SESSION['studentname'];?>! <a href="logout.php">退出登陆</a>
+				<?= $app[$lang]['welcome'] ?> <?php echo $_SESSION['studentname'];?>! <a href="logout.php"><?= $app[$lang]['logout'] ?></a>
 <?php 
 			}
 			else{
 ?>
-				<a href="login.php">登录</a>
+				<a href="login.php"><?= $app[$lang]['login'] ?></a> |
+				<a href="?lang=<?= $lang == 'en' ? 'zh_CN' : 'en' ?>"><?= $app[$lang]['lang'] ?></a>
 <?php
 			}
 ?>
@@ -34,6 +39,8 @@
 
 	function tail(){
 		GLOBAL $conn, $project;
+		GLOBAL $app;
+		GLOBAL $lang;
 		$backyear = intval(date("Y") - 1);
 		$sql = "SELECT * FROM `setting` WHERE `name`='{$project}' AND `value`='{$backyear}'";
 		$result = mysqli_query($conn, $sql);
@@ -45,9 +52,9 @@
 ?>
 		<div class="vote-per bottom">
 			<a href="<?php echo ($back) ? 'index.php?backyear=1' : 'javascript:void(0)';?>" class="<?php echo ($back) ? 'backyear' : 'noback';?>">
-				【查看上期投票情况】
+				<?= $app[$lang]['checkLastTime'] ?>
 			</a>
-			<div style="text-align:left;padding-left:10px;"><?php echo $row['value'];?></div>
+			<div style="text-align:left;padding-left:10px;"><?php echo $row[$lang == 'en' ? 'eng' : 'value'];?></div>
 		</div>
 <?php
 	}

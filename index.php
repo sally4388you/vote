@@ -21,7 +21,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>华中科技大学投票系统</title>
+	<title><?= $app[$lang]['title'] ?></title>
 	<link href="./css/main.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="./js/main.js"></script>
 </head>
@@ -39,11 +39,11 @@
 				$sql = "SELECT * FROM `setting` WHERE `name`='subTitle'";
 				$result = mysqli_query($conn, $sql);
 				$row = mysqli_fetch_array($result, MYSQLI_BOTH);
-				echo $row['value'];
+				echo $row[$lang == 'en' ? 'eng' : 'value'];
 			}
 ?>
 				</span>
-				<a href="vote-stat.php">查看所有投票结果 ></a>
+				<a href="vote-stat.php"><?= $app[$lang]['checkResult'] ?> ></a>
 				<div class="clear_div"></div>
 			</div>
 			<div class="vote-per vote-main">
@@ -64,15 +64,16 @@
 					$bar = (intval($arr[$i]['vote']) > 626) ? 188 : intval($arr[$i]['vote']) * 0.3;
 ?>
 					<li class="vote-per-box">
-						<img src="./photos/<?php echo $project."_".$year."/".strtolower($arr[$i]['studentid']);?>.jpg" alt="">
+						<!-- <img src="./photos/<?php //echo $project."_".$year."/".strtolower($arr[$i]['studentid']);?>.jpg" alt=""> -->
+						<img src="./photos/photo.png" alt="">
 						<p class="vote-per-name"><?php echo $arr[$i]['name'];?></p>
 						<p class="vote-per-major"><?php echo $arr[$i]['department'];?></p>
 						<div class="vote-per-progress">
 							<div class="vote-progress-bg"></div>
 							<div class="vote-progress-num" style="width: <?php echo $bar;?>px;"></div>
 						</div>
-						<p class="vote-per-num"><?php echo $arr[$i]['vote'];?>票</p>
-						<a href="javascript:void(0)" class="vote-per-btn" onclick="vote(<?php echo $encryptionid;?>);">投  票</a>
+						<p class="vote-per-num"><?php echo $arr[$i]['vote'];?> <?= $app[$lang]['ammount'] ?></p>
+						<a href="javascript:void(0)" class="vote-per-btn" onclick="vote(<?php echo $encryptionid;?>);"><?= $app[$lang]['vote'] ?></a>
 					</li>
 <?php
 				}

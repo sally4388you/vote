@@ -73,7 +73,7 @@ function addFormClear(){
 }
 
 function revise(button){
-	if (button.value == "修改"){
+	if (button.value == "修改" || button.value == "Submit"){
 		var name = ["studentid", "name", "department", "introduction"];
 		var divs = document.getElementsByClassName('detailtable')[0].getElementsByTagName('div');
 		for (var i = 0; i < divs.length; i ++){
@@ -85,7 +85,7 @@ function revise(button){
 			divs[i].innerHTML = "<input name='" + name[i] + "' type='text' value='" + divs[i].innerHTML + "'>";
 		}
 		document.getElementById('norevise').style.display = "inline";
-		button.value = "提交";
+		button.value = (button.value == "修改") ? "提交" : "Submit";
 	}
 	else document.getElementById('formRevise').submit();
 }

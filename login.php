@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include_once './backEnd/config.php';
+	include_once "./backEnd/language.php";
 	if (isset($_POST['studentid'])){
 		// if (isset($_SESSION['votetimes']) && $_SESSION['votetimes'] < 3 || !isset($_SESSION['votetimes'])){
 			$studentid = ($_POST['studentid'] == "")? "a" : $_POST['studentid'];
@@ -32,31 +33,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>华中科技大学投票系统</title>
+	<title><?= $app[$lang]['title'] ?></title>
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<script src="js/main.js"></script>
 </head>
 <body class="load-bd">
+	<h1><?= $app[$lang]['voteSystem'] ?></h1>
 	<div class="load">
-		<h1>投票系统</h1>
 		<form action="" method="post" onsubmit="return checkLoginForm(this);">
-			<input type="text" value="<?php echo (isset($_POST['studentid'])) ? $_POST['studentid'] : '个人学号';?>" name="studentid"/><br />
-			<input type="text" value="<?php echo (isset($_POST['studentid'])) ? $_POST['password'] : '身份证后6位';?>" name="password"/><br />
-			<input type="text" value="<?php echo (isset($_POST['studentid'])) ? $_POST['name'] : '姓名的第一个字';?>" name="name"><br />
-			<input type="submit" value="登陆"><br />
+			<input type="text" value="<?php echo (isset($_POST['studentid'])) ? $_POST['studentid'] : $app[$lang]['account'];?>" name="studentid"/><br />
+			<input type="text" value="<?php echo (isset($_POST['studentid'])) ? $_POST['password'] : $app[$lang]['id'];?>" name="password"/><br />
+			<input type="text" value="<?php echo (isset($_POST['studentid'])) ? $_POST['name'] : $app[$lang]['name'];?>" name="name"><br />
+			<input type="submit" value="<?= $app[$lang]['login'] ?>"><br />
 
-			<p style="text-align:center; margin-top:10px;">点击登陆进入投票系统进行活动投票</p>
+			<p style="text-align:center; margin-top:10px;"><?= $app[$lang]['loginMessage'] ?></p>
 
 			<div class="load-regist">
 				<!-- <p>每人最多可以投十票</p> -->
-				<p style="margin-top:100px;">&copy;学工处网络应用研发中心 NADC </p>
+				<p style="margin-top:100px;">&copy;<?= $app[$lang]['copy'] ?> </p>
 			</div>
 		</form>
 	</div>
 	<script>
 		var aInt = document.getElementsByTagName('input');
 		aInt[0].onblur = function () {
-			if (this.value == "") this.value = "个人学号";
+			if (this.value == "") this.value = "<?= $app[$lang]['account'] ?>";
 			this.style.color = "#999";
 		}
 		aInt[0].onfocus = function(){
@@ -66,7 +67,7 @@
 		aInt[1].onblur = function () {
 			if (this.value == ""){
 				this.type = "text";
-				this.value = "身份证后6位";
+				this.value = "<?= $app[$lang]['id'] ?>";
 			}
 			this.style.color = "#999";
 		}
@@ -76,7 +77,7 @@
 			this.style.color = "#333";
 		}
 		aInt[2].onblur = function () {
-			if (this.value == "") this.value = "姓名的第一个字";
+			if (this.value == "") this.value = "<?= $app[$lang]['name'] ?>";
 			this.style.color = "#999";
 		}
 		aInt[2].onfocus = function(){

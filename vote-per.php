@@ -26,7 +26,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>华中科技大学投票系统</title>
+	<title><?= $app[$lang]['title'] ?></title>
 	<link href="./css/main.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="./js/main.js"></script>
 </head>
@@ -41,7 +41,7 @@
 				$_sql = "SELECT * FROM `setting` WHERE `name`='subTitle'";
 				$_result = mysqli_query($conn, $_sql);
 				$_row = mysqli_fetch_array($_result, MYSQLI_BOTH);
-				echo $_row['value'];
+				echo $_row[$lang == 'en' ? 'eng' : 'value'];
 			}
 ?>
 				</span>
@@ -49,23 +49,24 @@
 			if ($year != date("Y")){
 				echo "<a href='index.php?backyear=1'>返回往期投票首页 ></a>";
 			}
-			else echo "<a href='index.php'>返回首页 ></a>";
+			else echo "<a href='index.php'>". $app[$lang]['back'] ." ></a>";
 ?>
 				<div class="clear_div"></div>
 			</div>
 			<form action="" method="post">
 			<div class="vote-per vote-per-content">
-				<h2>华中科技大学候选人物————<?php echo $row['name'];?></h2>
+				<h2><?= $app[$lang]['nominee'] ?>————<?php echo $row['name'];?></h2>
 				<div class="divide"></div>
-				<p class="vote-per-time">发布时间：<?php echo $row['time'];?></p>
+				<p class="vote-per-time"><?= $app[$lang]['postTime'] ?><?php echo $row['time'];?></p>
 				<div class="vote-per-box">
-					<img src="./photos/<?php echo $project."_".$year."/".strtolower($row['studentid']);?>.jpg" alt="">
+					<!-- <img src="./photos/<?php //echo $project."_".$year."/".strtolower($row['studentid']);?>.jpg" alt=""> -->
+					<img src="./photos/photo.png" alt="">
 					<div class="vote-per-progress">
 						<div class="vote-progress-bg"></div>
 						<div class="vote-progress-num" style="width: <?php echo $bar;?>px;"></div>
 					</div>
-					<p class="vote-per-num"><?php echo $row['vote'];?>票</p>
-					<input type="submit" value="投  票" class="vote-per-btn">
+					<p class="vote-per-num"><?php echo $row['vote'];?> <?= $app[$lang]['ammount'] ?></p>
+					<input type="submit" value="<?= $app[$lang]['vote'] ?>" class="vote-per-btn">
 					<input name="wondnte" type="hidden" value="<?php echo $encryptionid;?>">
 				</div>
 				<div class="vote-per-intro">

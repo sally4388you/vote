@@ -1,5 +1,6 @@
 <?php
 
+	include_once "./backEnd/language.php";
 	if (isset($_POST['wondnte'])){
 		$sql = "SELECT * FROM `setting` WHERE `name`='opentime'";
 		$result = mysqli_query($conn, $sql);
@@ -55,19 +56,19 @@
 							// setcookie('isvote','isvote', time() + 3600 * 24 * 5);
 							echo "<script>document.getElementById('votetime').innerHTML='{$votetime}';document.getElementById('cover').style.display='inline';</script>";
 						}
-						else echo "<script>alert('投票失败');</script>";
+						else echo "<script>alert('". $app[$lang]['voteFail'] ."');</script>";
 					}
 				}
 			}
 			else{
-				echo "<script>alert('投票失败');</script>";
+				echo "<script>alert('". $app[$lang]['voteFail'] ."');</script>";
 			}
 		}
 		else if ($time > $closetime){
-			echo "<script>alert('投票已结束');</script>";
+			echo "<script>alert('". $app[$lang]['voteEnd'] ."');</script>";
 		}
 		else if ($time < $opentime){
-			echo "<script>alert('投票还未开始');</script>";
+			echo "<script>alert('". $app[$lang]['voteNotBegin'] ."');</script>";
 		}
 	}
 ?>

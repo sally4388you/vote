@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'config.php';
+include_once 'language.php';
 
 if (!isset($_SESSION['managerID']))
 {
@@ -27,7 +28,7 @@ if (!isset($_SESSION['managerID']))
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_BOTH);
             $_SESSION['managerID'] = $managerID;
-            if ($password == $row['password'])  echo "<script>location.href='back.php?project=jsbzr';</script>";
+            if ($password == $row['password'])  echo "<script>location.href='back.php?project=sfu';</script>";
             else echo "<script>alert('密码输入有误');</script>";
         }
     }
@@ -43,7 +44,7 @@ else
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../css/logIn2.css" rel="stylesheet" type="text/css" />
-<title>投票管理系统</title>
+<title><?= $app[$lang]['titleManage'] ?></title>
 <script language="javascript">
     function Juge(theForm){
         if(theForm.managerID.value == ""){
@@ -60,20 +61,20 @@ else
 </script>
 </head>
 <body>
-	<div class="main">
+	<div class="main" style="background:url(../images/logIn_bg<?= $lang == 'en' ? '3' : '2'; ?>.jpg) center top no-repeat #FFF;">
     	<div class="logo"><img src="../images/logo.jpg" /></div>
-        <div class="inf_title">登录系统</div>
+        <div class="inf_title"><?= $app[$lang]['login'] ?></div>
     	<div class="inf_box">
             <form action="" method="post" onsubmit="return Juge(this)">
             	<input class="inf_input" type="text" name="managerID" />
             	<input class="inf_input" type="password" name="password" />
                 <span class="bt_box">
-                    <button type="submit" class="bt"><div>登 录</div></button>
+                    <button type="submit" class="bt"><div><?= $app[$lang]['login'] ?></div></button>
                 </span>
             </form>
-        	<div class="company">投票管理系统<span><!-- http://vip.yishion.com --></span></div>
+        	<div class="company"><?= $app[$lang]['titleManage'] ?><span><!-- http://vip.yishion.com --></span></div>
         </div>
-        <div class="announce"><font>版 权 声 明</font>华中科技大学网络应用与研发中心 （<a href="http://nadc.org.cn" target="_blank">NADC</a>）</div>
+        <div class="announce"><font><?= $app[$lang]['copyTitle'] ?></font><a href="http://nadc.org.cn" target="_blank"><?= $app[$lang]['copy'] ?></a> </div>
     </div>
 </body>
 </html>

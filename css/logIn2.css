@@ -6,12 +6,12 @@ body a{ text-decoration:none;}
 body a:hover{ text-decoration:underline;}
 
 
-.main{ width:980px; margin:0 auto; height:540px; cursor:default; position:relative;background:url(../images/logIn_bg2.jpg) center top no-repeat #FFF; top:0px;}
+.main{ width:980px; margin:0 auto; height:540px; cursor:default; position:relative; top:0px;}
 
 .announce{ position:absolute; top:420px; left:13px; line-height:25px; font-size:12px; width:600px; text-align:left; color:#4f4f4f;}
 .announce a{ color:#4f4f4f;}
 .announce a:hover{ color:#00f;}
-.announce font{ color:#FFF; font-weight:bold; padding-right:30px; font-size:12px;}
+.announce font{ color:#FFF; font-weight:bold; padding-right:40px; font-size:12px;}
 
 .logo{ position:absolute; top:150px; left:5px;}
 
