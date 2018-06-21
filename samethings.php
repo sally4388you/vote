@@ -27,7 +27,8 @@
 			else{
 ?>
 				<a href="login.php"><?= $app[$lang]['login'] ?></a> |
-				<a href="?lang=<?= $lang == 'en' ? 'zh_CN' : 'en' ?>"><?= $app[$lang]['lang'] ?></a>
+				<a href="?lang=<?= $lang == 'en' ? 'zh_CN' : 'en' ?>"><?= $app[$lang]['lang'] ?></a> |
+				<a href="backEnd/back.php">Management System</a>
 <?php
 			}
 ?>
